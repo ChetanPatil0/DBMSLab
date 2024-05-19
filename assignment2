@@ -1,0 +1,38 @@
+create table employee1(emp_id integer primary key, emp_namevarchar(60) ,city integer);
+create table works(w_id integer , company_name varchar(60) ,cityvarchar(20));
+create table company(company_name varchar(60) ,city varchar(20));
+create table manager(id integer ,manager_id integer);
+
+
+//add column (salary:integer) in works table
+alter table works add salary integer;
+
+//modify the type of city column in employee to string
+Command - alter table employee1 modify city varchar(60);
+
+//delete column street from employee table
+Command - alter table employee1 drop column street;
+
+//change the name of the column manager_id to manager inmanagestable
+Command - alter table manager rename column manager_idtomanager;
+
+//rename table company to CMP
+Command - rename company to CMP;
+
+//Drop table manages
+Command-drop table manager;
+
+//employee(empno , empname, designation, city, salary, zipcode, county)
+create table employee3(emp_no number, emp_name varchar(60),designation varchar(60), city varchar(60),salary number ,zipcodenumber,country varchar(60));
+
+//Creates a sequence used to generate employee numbersfor the empno column of the emp table
+create sequence employe minvalue1maxvalue 100 start with 1 increment by 1 ;
+
+// Create an Index on county. 
+CREATE INDEX ind2 ON employee3(salary);
+
+//Create a view for employees having salary <50000 andstaysin‘Mumbai’ 
+create view salary_employee as
+select emp_no , salary ,city
+from employee3
+where salary<30000 and city='chalisgaon';
